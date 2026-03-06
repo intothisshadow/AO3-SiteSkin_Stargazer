@@ -1,6 +1,6 @@
 # AO3 Site Skin: Stargazer
 
-A space-inspired AO3 site skin that transforms the interface with a deep "near-black space" palette and elegant gold and nebula-purple accents. It utilizes a sophisticated typography pairing of Cinzel for headers and Inter for body text to enhance readability and style. The design features a centralized variable system for easy customization, alongside unique color-coded tags and custom-integrated icons from ZerafinaCSS. Ultimately, it provides a high-contrast, immersive reading experience tailored for users who prefer a dark, atmospheric aesthetic.
+A space-inspired AO3 site skin that transforms the interface with a deep "near-black space" palette and elegant gold and nebula-purple accents. It utilizes a sophisticated typography pairing of Cinzel for headers and Inter for body text to enhance readability and style. A high-contrast, immersive reading experience tailored for users who prefer a dark, atmospheric aesthetic.
 
 # FONT
 
