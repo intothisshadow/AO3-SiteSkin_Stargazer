@@ -1,9 +1,34 @@
 /* ============================================
-   AO3 Site Skin — Starter Template
-
-   A blank-slate skin with all AO3 selectors
-   intact. Edit the :root variables block to
-   build your own skin from scratch.
+ * Theme Name: Stargazer - AO3 Site Skin
+ * Author: intothisshadow
+ * Author URI: https://www.so-obsessed.com
+ *
+ * ==============================================================
+ * LINKS & CREDITS
+ * ==============================================================
+ *
+ * CODE & INSTRUCTIONS:
+ *
+ * - Code (Github):       https://github.com/intothisshadow/AO3-SiteSkin_Stargazer
+ * - Instructions (AO3):  https://archiveofourown.org/works/80186871
+ *
+ * FONTS:
+ *
+ * - This theme uses Cinzel for (https://fonts.google.com/specimen/Cinzel) the Archive of Our Own title in the header and Inter (https://fonts.google.com/specimen/Inter) for everything else. Both fonts can be both downloaded for installation on your system.
+ *
+ * CREDITS:
+ *
+ * - The header image by Brian Goff at Unsplash. https://unsplash.com/photos/cluster-of-star-illustration-f7YQo-eYHdM
+ *
+ * - AO3 logo upgrade and colorization code (found in "Replace the AO3 Icons 2.0 [Site Skin]") by ZerafinaCSS, (Zerafina)
+ * https://github.com/ZerafinaCSS/ | https://archiveofourown.org/users/Zerafina/pseuds/ZerafinaCSS
+ *
+ * FIND ME ON:
+ *
+ * - Github:              https://github.com/intothisshadow
+ * - AO3:                 https://archiveofourown.org/users/intothisshadow/
+ * - Website:             https://www.so-obsessed.com
+ * ============================================
 
    HOW TO USE:
    1. Edit the :root block (sec 0) — this is
@@ -211,12 +236,11 @@ html {
 }
 
 /* AO3's mobile stylesheet re-whites these structural wrappers.
-   Explicitly dark them here so no media query is needed.
-   NOTE: .wrapper is intentionally excluded — AO3 reuses that class
-   on profile meta boxes and other elements throughout the page. */
+   Explicitly dark them here so no media query is needed. */
 #outer,
 #inner,
-#wrapper {
+#wrapper,
+.wrapper {
   background-color: var(--deep-bg) !important;
 }
 
@@ -242,10 +266,17 @@ html {
 
 /* Prevent horizontal overflow on mobile.
    Note: iframes excluded from height:auto — it collapses the TinyMCE
-   rich text editor iframe on works/new. */
-img, video, object, embed {
+   rich text editor iframe on works/new.
+   Symbol span imgs excluded — zerafina uses width:0/height:0 + padding
+   to size them; height:auto and max-width:100% both break that trick. */
+img:not(#symbols-key dl img):not(#bookmark-symbols-key img),
+video, object, embed {
   height: auto !important;
   max-width: 100% !important;
+}
+#symbols-key dl img,
+#bookmark-symbols-key img {
+  max-width: none !important;
 }
 iframe {
   max-width: 100% !important;
@@ -1004,10 +1035,24 @@ label.action:hover, label.action:focus {
   padding: 0.5em 1em !important;
 }
 
+#main.dashboard .fandom.listbox.group ul.required-tags,
+#main.dashboard .listbox.group ul.required-tags {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 #main.dashboard .fandom.listbox.group li,
 #main.dashboard .listbox.group li {
   border-bottom: 1px solid rgba(200,160,80,0.08) !important;
   padding: 4px 0 !important;
+}
+
+#main.dashboard li.work.blurb ul.required-tags li,
+#main.dashboard li.bookmark.blurb ul.required-tags li,
+#main.dashboard li.series.blurb ul.required-tags li {
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-bottom: 3px !important;
 }
 
 #main.dashboard .fandom.listbox.group li:last-child,
@@ -1509,19 +1554,34 @@ li.series.blurb p.datetime {
   z-index: 1 !important;
 }
 
-/* Required-tags icons — let AO3 handle the layout, just position correctly */
+/* Required-tags 2x2 grid */
 li.work.blurb .header.module ul.required-tags,
 li.bookmark.blurb .header.module ul.required-tags,
 li.series.blurb .header.module ul.required-tags {
-  float: left !important;
   list-style: none !important;
-  margin: 6px 8px 4px 0 !important;
+  position: absolute !important;
+  top: 0.429em !important;
+  left: 0.75em !important;
+  width: 60px !important;
+  margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Prevent global max-width from squashing sprite images */
+.blurb ul.required-tags li+li+li {
+  position: absolute !important;
+  left: 28px !important;
+  top: 0 !important;
+}
+
+.blurb ul.required-tags li+li+li+li {
+  position: absolute !important;
+  left: 28px !important;
+  top: 28px !important;
+}
+
+/* Prevent global img rules from squashing zerafina's sprite images */
 ul.required-tags li a span {
-  background-size: auto !important;
+  background-size: cover !important;
   max-width: none !important;
 }
 
@@ -1620,12 +1680,9 @@ li.series.blurb ul.tags {
 li.work.blurb dl.stats,
 li.bookmark.blurb dl.stats,
 li.series.blurb dl.stats {
-  border-top: 1px solid var(--border-light) !important;
   display: flex !important;
   flex-wrap: wrap !important;
-  margin-top: 0.5em !important;
   padding-bottom: 10px !important;
-  padding-top: 0.5em !important;
 }
 
 li.work.blurb dl.stats dt,
@@ -1907,12 +1964,6 @@ li.skins.own.picture.blurb.group .actions {
 }
 
 /* --- Summary blockquotes (all card types) --- */
-.blurb .summary,
-.blurb blockquote.userstuff.summary,
-blockquote.userstuff.summary {
-  text-align: left !important;
-}
-
 blockquote.userstuff.summary,
 .blurb blockquote.userstuff.summary,
 li.work.blurb blockquote.userstuff.summary,
@@ -4078,4 +4129,386 @@ li.reading.work.blurb.group div.user.module.group ul.actions li {
   text-transform: uppercase !important;
 }
 
+/*============================================================
+ * REPLACE THE AO3 ICONS - default color scheme
+ * by zerafinacss https://github.com/ZerafinaCSS/Replace-the-AO3-Icons-2.0
+ * ============================================================*/
 
+ul.required-tags,
+.bookmark .status span,
+.blurb .icon {
+  opacity: 1 !important; /* some public site skins like Reversi set the opacity of some icons to 0.9, which I want to prevent here */
+}
+
+/*========== ICONS FOR USERS, COLLECTIONS, TAGS etc. ==========*/
+/* have to use "content" instead of "background" to replace some of these icons, as they were coded differently in the default archive skin */
+
+/* default user icon */
+img[src$="/images/skins/iconsets/default/icon_user.png"] {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd; /* change border width and color here */
+  background:
+  #6e6e6e /* change icon color here */
+  content-box;
+  content: url("https://zerafinacss.github.io/ao3/icons/user-default-01.png"); /* url of new icon */
+}
+
+/* anon comment icon */
+.comment .icon .anonymous {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025; /* change border width and color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/anon-01.png"), /* url of new icon */
+  #6e6e6e /* change background color here */
+  border-box;
+  background-size: cover;
+}
+
+/* guest comment icon */
+.comment .icon .visitor {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025; /* change border width and color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/user-visitor-01.png"), /* url of new icon */
+  #6e6e6e /* change background color here */
+  border-box;
+  background-size: cover;
+}
+
+/* default collection icon */
+img[src$="/images/skins/iconsets/default/icon_collection.png"] {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025; /* change border width and color here */
+  background:
+  linear-gradient(transparent, #ffffff50 45% 55%, transparent), /* subtle gradient */
+  #616c90 /* change background color here */
+  border-box;
+  content: url("https://zerafinacss.github.io/ao3/icons/collection-01.png"); /* url of new icon */
+}
+
+/* tag icons */
+.tagset .primary .icon,
+.tag .primary .icon,
+.index .tagset .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #00000025; /* change border width and color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/tag-01.png"), /* url of new icon */
+  linear-gradient(transparent, #ffffff50 45% 55%, transparent), /* subtle gradient */
+  #900 /* change background color here */
+  border-box;
+  background-size: cover;
+}
+
+/* icon for unrevealed works */
+.index .mystery .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd; /* change width and color of outer border here */
+  box-shadow: inset 0 0 0 3px #fff; /* change width and color of inner border here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/anon-01.png"), /* url of new icon */
+  linear-gradient(transparent, #ffffff50 45% 55%, transparent) /* subtle gradient */
+  #616c90 /* change background color here */
+  content-box;
+  background-size: cover;
+}
+
+/* admin icon => seen on news posts */
+.admin .primary .icon {
+  box-sizing: border-box;
+  border: 1.5px solid #00000099; /* change border width and color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/admin-01.png") /* url of new icon */
+  no-repeat,
+  linear-gradient(#ffffff40, transparent) /* subtle gradient */
+  #900 /* change background color here */
+  border-box;
+  background-size: cover;
+}
+
+/* default icon for skins */
+.skins .primary .icon:not(:has(a .icon)),
+.index .skins .icon:not(:has(a .icon)) {
+  box-sizing: border-box;
+  border: 1.5px solid #ddd; /* change border width and color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/skins-01.png"), /* url of new icon */
+  #900 /* change icon color here */
+  border-box;
+  background-size: cover;
+}
+
+/*>========== CONTENT SYMBOLS ==========<*/
+
+/* sets the size of the symbols keys icons */
+#symbols-key dl img,
+#bookmark-symbols-key img {
+width: 0 !important;
+height: 0 !important;
+padding: 25px 0 0 25px;
+}
+
+/* sizing and borders for content symbols */
+.blurb ul.required-tags li a > span,
+.bookmark p.status a > span,
+#symbols-key dl img,
+#bookmark-symbols-key img {
+box-sizing: border-box;
+border: 1px solid; /* change border width here or delete this if you don't want the borders */
+background-size: cover;
+background-origin: border-box;
+}
+
+/* empty symbols boxes (no rating, category or warning) */
+.required-tags .rating-notrated,
+.required-tags .category-none,
+.required-tags .warning-no,
+.status .count,
+img[src$="/images/skins/iconsets/default/rating-notrated.png"],
+img[src$="/images/skins/iconsets/default/category-none.png"],
+img[src$="/images/skins/iconsets/default/warning-no.png"] {
+  color: #ffffff20;
+  background: #1a1612cc;
+}
+
+/*
+ * The following content symbols have transparent borders, allowing the background to show through.
+ * This automatically gives the icons borders that have a slightly darker color than the background color.
+ * You can replace the border color with any other rgb, rgba, or hex color, transparent or not.
+ */
+
+/*>>========== Rating ==========<<*/
+
+/* General Audiences */
+.required-tags .rating-general-audience,
+img[src$="/images/skins/iconsets/default/rating-general-audience.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/rating-gen-01.png"), /* url of new icon */
+  #8bc101; /* change background color here */
+}
+
+/* Teen And Up Audiences */
+.required-tags .rating-teen,
+img[src$="/images/skins/iconsets/default/rating-teen.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/rating-teen-01.png"), /* url of new icon */
+  #f5ce00; /* change background color here */
+}
+
+/* Mature */
+.required-tags .rating-mature,
+img[src$="/images/skins/iconsets/default/rating-mature.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/rating-mature-01.png"), /* url of new icon */
+  #ef851c; /* change background color here */
+}
+
+/* Explicit */
+.required-tags .rating-explicit,
+img[src$="/images/skins/iconsets/default/rating-explicit.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/rating-explicit-01.png"), /* url of new icon */
+  #b0021f; /* change background color here */
+}
+
+/*>>========== Relationships, pairings, orientations ==========<<*/
+
+/* F/F */
+.required-tags .category-femslash,
+img[src$="/images/skins/iconsets/default/category-femslash.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/category-ff-01.png"), /* url of new icon */
+  #b0021f; /* change background color here */
+}
+
+/* F/M */
+.required-tags .category-het,
+img[src$="/images/skins/iconsets/default/category-het.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/category-mf-01.png"), /* url of new icon */
+  #910679; /* change background color here */
+}
+
+/* Gen */
+.required-tags .category-gen,
+img[src$="/images/skins/iconsets/default/category-gen.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/category-gen-01.png"), /* url of new icon */
+  #8bc101; /* change background color here */
+}
+
+/* M/M */
+.required-tags .category-slash,
+img[src$="/images/skins/iconsets/default/category-slash.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/category-mm-01.png"), /* url of new icon */
+  #0054d4; /* change background color here */
+}
+
+/* Multi */
+.required-tags .category-multi,
+img[src$="/images/skins/iconsets/default/category-multi.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  conic-gradient(from 270deg, #8bc101 25%, #910679 25% 50%, #0054d4 50% 75%, #b0021f 75%); /* conic gradient with the colors of the relationship icons */
+}
+
+/* Other relationships */
+.required-tags .category-other,
+img[src$="/images/skins/iconsets/default/category-other.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/category-other-01.png"), /* url of new icon */
+  #000; /* change background color here */
+}
+
+/*>>========== Content warnings ==========<<*/
+
+/* Author chose not to warn */
+.required-tags .warning-choosenotto,
+img[src$="/images/skins/iconsets/default/warning-choosenotto.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/warning-choosenotto-01.png"), /* url of new icon */
+  #ef851c; /* change background color here */
+}
+
+/* Warnings apply */
+.required-tags .warning-yes,
+img[src$="/images/skins/iconsets/default/warning-yes.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/warning-yes-01.png"), /* url of new icon */
+  #b0021f; /* change background color here */
+}
+
+/* External work */
+.required-tags .external-work,
+img[src$="/images/skins/iconsets/default/warning-external-work.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/warning-external-work-01.png"), /* url of new icon */
+  #107cb9; /* change background color here */
+}
+
+/*>>========== Completion status ==========<<*/
+
+/* uncomplete/unfulfilled */
+.required-tags .complete-no,
+img[src$="/images/skins/iconsets/default/complete-no.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/complete-no-01.png"), /* url of new icon */
+  #b0021f; /* change background color here */
+}
+
+/* completed/filled */
+.required-tags .complete-yes,
+img[src$="/images/skins/iconsets/default/complete-yes.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/complete-yes-01.png"), /* url of new icon */
+  #8bc101; /* change background color here */
+}
+
+/*>>========== Bookmark symbols ==========<<*/
+
+/* Rec bookmark */
+.status .rec,
+img[src$="/images/skins/iconsets/default/bookmark-rec.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/bookmark-rec-01.png"), /* url of new icon */
+  #107cb9; /* change background color here */
+}
+
+/* Public bookmark */
+.status .public,
+img[src$="/images/skins/iconsets/default/bookmark-public.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/bookmark-public-01.png"), /* url of new icon */
+  #107cb9; /* change background color here */
+}
+
+/* Private bookmark */
+.status .private,
+img[src$="/images/skins/iconsets/default/bookmark-private.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/bookmark-locked-01.png"), /* url of new icon */
+  #000; /* change lock color here */
+  font-size: 0;
+}
+
+/* fix private bookmark */
+.status .private .text {
+  background: none;
+  /* This seems to be the only bookmark icon where the background is put in the .text element instead of it's parent.
+   *  I want it to match the rest, so I'm hiding the background of the .text element. */
+}
+
+/* Hidden bookmark */
+.status .hidden,
+img[src$="/images/skins/iconsets/default/bookmark-hidden.png"] {
+  color: #0000001a; /* change border color here */
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/bookmark-locked-01.png"), /* url of new icon */
+  #b0021f; /* change lock color here */
+}
+
+/*>========== RSS ICON ==========<*/
+
+/* hide old rss icon */
+a.rss span {
+  padding: 0;
+  background: none;
+}
+
+/* setup for the new rss icon */
+.actions li a.rss {
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  column-gap: 0.3em;
+}
+
+/* new rss icon */
+.actions li a.rss::before {
+  box-sizing: border-box;
+  width: 0.85em;
+  height: 0.85em;
+  border: 1px solid var(--icon-border1);
+  border-radius: 2px;
+  background:
+  url("https://zerafinacss.github.io/ao3/icons/rss-01.png") /* url of new icon */
+  #ef851c; /* change background color here */
+  background-size: cover;
+  content: "";
+}
+
+/*>========== KUDOS ICON ==========<*/
+
+/* hide old kudos icon */
+p.kudos {
+  background: none;
+}
+
+/* new kudos icon */
+div:has(> p.kudos)::before {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: url("https://zerafinacss.github.io/ao3/icons/kudos-01.png"); /* url of new icon */
+  background-size: cover;
+  content: "";
+  filter: invert(18%) sepia(86%) saturate(2463%) hue-rotate(345deg) brightness(88%) contrast(95%); /* adjust filter values to change color */
+}
