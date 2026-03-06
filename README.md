@@ -6,6 +6,14 @@ A space-inspired AO3 site skin that transforms the interface with a deep "near-b
 
 This theme uses Cinzel for (https://fonts.google.com/specimen/Cinzel) the Archive of Our Own title in the header and Inter (https://fonts.google.com/specimen/Inter) for everything else. Both fonts can be both downloaded for installation on your system.
 
+# CREDITS
+
+The header image by Brian Goff at Unsplash. https://unsplash.com/photos/cluster-of-star-illustration-f7YQo-eYHdM
+
+Replace the AO3 Icons 2.0 by ZerafinaCSS, (Zerafina)
+https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
+
+
 # CREATING A NEW SITE SKIN
 
 In order to create a site skin, you need to have an AO3 account and you need to be logged in.
@@ -32,13 +40,10 @@ Head over to the GitHub repository and copy the provided code from **style.css**
 · Scroll to the bottom of the page and click **Submit**. You will be taken to a preview page showing your new skin details.  
 · Click the **Use** button. Your new skin is now active and will be visible on any device whenever you are logged in.
 
-# CREDITS
-
-The header image by Brian Goff at Unsplash. https://unsplash.com/photos/cluster-of-star-illustration-f7YQo-eYHdM
-
-Replace the AO3 Icons 2.0 by ZerafinaCSS, (Zerafina)
-https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
-
 # SCREENSHOTS
 
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot1.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_Stargazer/refs/heads/main/screenshot1.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_Stargazer/refs/heads/main/screenshot2.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_Stargazer/refs/heads/main/screenshot3.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_Stargazer/refs/heads/main/screenshot4.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_Stargazer/refs/heads/main/screenshot5.jpg)
