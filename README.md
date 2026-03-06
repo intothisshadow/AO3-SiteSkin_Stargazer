@@ -1,6 +1,6 @@
 # AO3 Site Skin: Stargazer
 
-A modern, elegant AO3 site skin featuring a soft lilac and teal color palette accented by vibrant pink gradients. The design transforms the traditional layout into a clean, card-based interface with rounded "pill" navigation and customized tag badges that are color-coded for easy browsing. Key visual enhancements include a full-page gradient background, custom scrollbars, and stylized buttons that offer a polished, tactile feel. By combining refined typography with semi-transparent UI elements, this skin creates a cohesive and tranquil reading experience that is both aesthetically striking and highly functional.
+
 
 # FONT
 
