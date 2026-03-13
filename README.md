@@ -13,7 +13,7 @@ The header image by Brian Goff at Unsplash. https://unsplash.com/photos/cluster-
 Replace the AO3 Icons 2.0 by ZerafinaCSS, (Zerafina)
 https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
 
-# EATING A NEW SITE SKIN
+# CREATING A NEW SITE SKIN
 
 In order to create a site skin, you need to have an AO3 account and you need to be logged in.
 
