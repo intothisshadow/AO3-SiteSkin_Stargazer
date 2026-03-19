@@ -6,7 +6,7 @@
  ============================================
 
  HOW TO USE:
- 1. Make a new site skin with the Moonlit Wisteria code (style_desktop.css in this same repository/zip.) and be sure to select "all" in the Media section. Save skin.
+ 1. Make a new site skin with the Stargazer code (style_desktop.css in this same repository/zip.) and be sure to select "all" in the Media section. Save skin.
  2. Make another new site skin with the code below, selecting "only screen and (max-width: 62em)" in the Media section, and then also choosing Stargazer as the parent skin. Save and active.
 
  ============================================
@@ -37,16 +37,16 @@
 
   /* Flex column so Hi/Post/Log Out stack vertically */
   #greeting {
+    align-items: flex-end !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-end !important;
     line-height: 1.6 !important;
   }
 
   #greeting .user {
+    align-items: flex-end !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-end !important;
     width: 100% !important;
   }
 
@@ -66,17 +66,17 @@
 
   /* Dropdown — anchor to right edge, wide enough to read */
   #greeting .dropdown .menu {
+    left: auto !important;
     min-width: 160px !important;
     right: 0 !important;
-    left: auto !important;
   }
 
   /* ── Profile page ────────────────────────── */
 
   .user.home div.primary.header.module p.icon img,
   .user.profile div.primary.header.module p.icon img {
-    width: 45px !important;
     height: 45px !important;
+    width: 45px !important;
   }
 
   #main .user.home .icon,
@@ -112,9 +112,9 @@
   .admin.index .navigation,
   .admin.index > p,
   #main .admin .module > p {
+    align-items: center !important;
     display: flex !important;
     flex-wrap: wrap !important;
-    align-items: center !important;
   }
 
   .admin.index select,
@@ -567,8 +567,8 @@
 
   dl.work.meta.group {
     border-left: none !important;
-    border-right: none !important;
     border-radius: var(--radius-sm) !important;
+    border-right: none !important;
     border-top: 3px solid var(--accent-1) !important;
     padding: 0.4em 0.6em !important;
   }

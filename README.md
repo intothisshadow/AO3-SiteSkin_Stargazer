@@ -48,10 +48,12 @@ This skin comes with a mobile add-on that makes the skin look better on phones a
 1. Create a new site skin
 2. Copy/paste the code from *style_mobile.css*
 3. In the Media section, select: `only screen and (max-width: 62em)`
-4. Save and Use.
+4. Select Stargazer as parent skin.
+5. Save and Use.
 
 # Last Updated
 
+- March 19, 2026 - New site skin page: fixed parent skin dropdown getting cut off
 - March 13, 2026 - Mobile add-on published
 - March 6, 2026 - Desktop skin published
 
