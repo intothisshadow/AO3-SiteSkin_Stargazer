@@ -1,49 +1,55 @@
 /*
- Theme Name: Mobile add-on to Stargazer - AO3 Site Skin
- Author: intothisshadow
- Author URI: https://www.so-obsessed.com
-
- ============================================
-
- HOW TO USE:
- 1. Make a new site skin with the Stargazer code (style_desktop.css in this same repository/zip.) and be sure to select "all" in the Media section. Save skin.
- 2. Make another new site skin with the code below, selecting "only screen and (max-width: 62em)" in the Media section, and then also choosing Stargazer as the parent skin. Save and active.
-
- ============================================
- * FONT SIZING STRATEGY:
- *   Each breakpoint sets a single body font-size.
- *   All header elements use em ratios off that base,
- *   so the whole page scales together consistently.
+ * Theme Name: Mobile add-on to Stargazer - AO3 Site Skin
+ * Author: intothisshadow
+ * Author URI: https://www.so-obsessed.com
+ * Last Updated: 2026-Apr-14 19:33 GMT
+ * ============================================
  *
- *   Main skin base: 18px
- *   ≤ 62em: 14px  (0.78x)
- *   ≤ 42em: 11px  (0.61x)
- *   ≤ 30em: 10px  (0.56x)
+ * HOW TO USE:
+ * 1. Make a new site skin with the Stargazer code (style_desktop.css in this same repository/zip.) and be sure to select "all" in the Media section. Save skin.
+ * 2. Make another new site skin with the code below, selecting "only screen and (max-width: 62em)" in the Media section, and then also choosing Stargazer as the parent skin. Save and active.
+ *
+ * ============================================
+ * FONT SIZING STRATEGY:
+ * Each breakpoint sets a single body font-size.
+ * All header elements use em ratios off that base,
+ * so the whole page scales together consistently.
+ *
+ * Main skin base: 18px
+ * ≤ 62em: 14px  (0.78x)
+ * ≤ 42em: 11px  (0.61x)
+ * ≤ 30em: 10px  (0.56x)
  *
  * BREAKPOINTS (matching AO3's own media CSS):
- *   max-width: 62em  — tablet / midsize
- *   max-width: 42em  — portrait phone
- *   max-width: 30em  — very small phones
- * ============================================ */
+ * max-width: 62em  — tablet / midsize
+ * max-width: 42em  — portrait phone
+ * max-width: 30em  — very small phones
+ * ============================================
+ */
 
 
-/* ============================================
-   SHARED — applies at all mobile widths (≤ 62em)
-   ============================================ */
+/*
+ * ============================================
+ * SHARED — applies at all mobile widths (≤ 62em)
+ * ============================================
+ */
 
-@media only screen and (max-width: 62em) {
+@media only screen and (max-width: 62em)
+{
 
   /* ── Greeting ────────────────────────────── */
 
   /* Flex column so Hi/Post/Log Out stack vertically */
-  #greeting {
+  #greeting
+  {
     align-items: flex-end !important;
     display: flex !important;
     flex-direction: column !important;
     line-height: 1.6 !important;
   }
 
-  #greeting .user {
+  #greeting .user
+  {
     align-items: flex-end !important;
     display: flex !important;
     flex-direction: column !important;
@@ -51,7 +57,8 @@
   }
 
   #greeting a,
-  #greeting a:visited {
+  #greeting a:visited
+  {
     background: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -65,7 +72,8 @@
   }
 
   /* Dropdown — anchor to right edge, wide enough to read */
-  #greeting .dropdown .menu {
+  #greeting .dropdown .menu
+  {
     left: auto !important;
     min-width: 160px !important;
     right: 0 !important;
@@ -74,51 +82,59 @@
   /* ── Profile page ────────────────────────── */
 
   .user.home div.primary.header.module p.icon img,
-  .user.profile div.primary.header.module p.icon img {
+  .user.profile div.primary.header.module p.icon img
+  {
     height: 45px !important;
     width: 45px !important;
   }
 
   #main .user.home .icon,
-  #main .userpic {
+  #main .userpic
+  {
     left: 0 !important;
     top: 2px !important;
   }
 
   .user.home h2.heading,
-  .user.profile h2.heading {
+  .user.profile h2.heading
+  {
     padding-left: 60px !important;
   }
 
   .user.home div.primary.header.module ul.navigation.actions,
-  .user.profile div.primary.header.module ul.navigation.actions {
+  .user.profile div.primary.header.module ul.navigation.actions
+  {
     margin-top: 70px !important;
   }
 
   /* ── Kudos icon ──────────────────────────── */
 
-  div:has(> p.kudos)::before {
+  div:has(> p.kudos)::before
+  {
     display: none !important;
   }
 
   /* ── News / admin page ───────────────────── */
 
-  .admin .primary .icon {
+  .admin .primary .icon
+  {
     height: 50px !important;
     width: 50px !important;
   }
 
   /* Filter bar — Tag/Language/Go/RSS wrap onto multiple lines */
   .admin.index .navigation,
-  .admin.index > p,
-  #main .admin .module > p {
+  .admin.index>p,
+  #main .admin .module>p
+  {
     align-items: center !important;
     display: flex !important;
     flex-wrap: wrap !important;
   }
 
   .admin.index select,
-  #main .admin select {
+  #main .admin select
+  {
     margin: 3px 0 !important;
     max-width: 100% !important;
     width: 100% !important;
@@ -127,46 +143,56 @@
 }
 
 
-/* ============================================
-   MIDSIZE — tablet / landscape phone (≤ 62em)
-   (same breakpoint as SHARED above; split for clarity)
-   ============================================ */
+/*
+ * ============================================
+ * MIDSIZE — tablet / landscape phone (≤ 62em)
+ * (same breakpoint as SHARED above; split for clarity)
+ * ============================================
+ */
 
-@media only screen and (max-width: 62em) {
+@media only screen and (max-width: 62em)
+{
 
   /* ── Body base ───────────────────────────── */
 
-  body {
+  body
+  {
     font-size: 14px !important;
     overflow-x: hidden !important;
   }
 
-  html {
+  html
+  {
     overflow-x: hidden !important;
   }
 
   /* ── Header ──────────────────────────────── */
 
-  #header {
+  #header
+  {
     min-height: 160px !important;
   }
 
   /* 1.4em × 14px ≈ 20px */
-  #header h1 a span {
+  #header h1 a span
+  {
     font-size: 1.4em !important;
   }
 
-  #greeting {
+  #greeting
+  {
     width: 80px !important;
   }
 
   /* Nav bar — lift off bottom border */
-  #header .primary.navigation {
+  #header .primary.navigation
+  {
     bottom: 8px !important;
   }
 
   /* Nav pill */
-  #header .primary.navigation > ul {
+  #header .primary.navigation>ul
+  {
     border-radius: 8px !important;
     margin: 2px 4px 6px !important;
     padding: 1px 3px !important;
@@ -174,7 +200,8 @@
 
   /* 0.8em — scales nav links relative to inherited nav font size */
   #header .primary.navigation a,
-  #header .primary.navigation a:visited {
+  #header .primary.navigation a:visited
+  {
     font-size: 0.8em !important;
     letter-spacing: 0.04em !important;
     margin: 2px !important;
@@ -182,14 +209,16 @@
   }
 
   /* Search bar — hidden, use Search nav link instead */
-  #header .search {
+  #header .search
+  {
     display: none !important;
   }
 
   /* ── Dashboard ───────────────────────────── */
 
   #dashboard,
-  #dashboard.own {
+  #dashboard.own
+  {
     background: var(--panel-bg) !important;
     border: 1px solid var(--border-light) !important;
     border-bottom: 3px solid var(--accent-2) !important;
@@ -201,11 +230,13 @@
 
   #dashboard h2.heading,
   #dashboard h3.heading,
-  #dashboard h4.heading {
+  #dashboard h4.heading
+  {
     display: none !important;
   }
 
-  #dashboard a {
+  #dashboard a
+  {
     background: linear-gradient(135deg, var(--btn-start) 0%, var(--btn-end) 100%) !important;
     border-radius: 8px !important;
     color: var(--text-on-dark) !important;
@@ -217,11 +248,13 @@
     text-transform: uppercase !important;
   }
 
-  #dashboard a:hover {
+  #dashboard a:hover
+  {
     background: linear-gradient(135deg, var(--btn-hover-start) 0%, var(--btn-hover-mid) 50%, var(--btn-end) 100%) !important;
   }
 
-  #dashboard ul.navigation.actions li span.current {
+  #dashboard ul.navigation.actions li span.current
+  {
     background: var(--accent-1) !important;
     border-radius: 8px !important;
     color: var(--text-on-dark) !important;
@@ -236,13 +269,15 @@
 
   li.work.blurb,
   li.bookmark.blurb,
-  li.series.blurb {
+  li.series.blurb
+  {
     margin-bottom: 0.75em !important;
   }
 
   li.work.blurb p.datetime,
   li.bookmark.blurb p.datetime,
-  li.series.blurb p.datetime {
+  li.series.blurb p.datetime
+  {
     font-size: 0.75em !important;
     right: 8px !important;
     top: 14px !important;
@@ -251,25 +286,29 @@
   .tags a,
   .tags a:visited,
   ul.tags a,
-  dl.meta a.tag {
+  dl.meta a.tag
+  {
     font-size: 0.78em !important;
     padding: 2px 8px !important;
   }
 
   li.work.blurb dl.stats,
   li.bookmark.blurb dl.stats,
-  li.series.blurb dl.stats {
+  li.series.blurb dl.stats
+  {
     font-size: 0.82em !important;
   }
 
   /* ── Work page ───────────────────────────── */
 
-  .userstuff {
+  .userstuff
+  {
     max-width: 98% !important;
     padding: 1.2em 1em !important;
   }
 
-  dl.work.meta.group {
+  dl.work.meta.group
+  {
     border-left: 4px solid var(--accent-1) !important;
     border-right: none !important;
   }
@@ -287,7 +326,8 @@
   ul.errors,
   .success,
   p.success,
-  div.success {
+  div.success
+  {
     font-size: 0.9em !important;
     padding: 0.6em 0.8em !important;
   }
@@ -295,44 +335,54 @@
 }
 
 
-/* ============================================
-   SMALL — portrait phone (≤ 42em)
-   ============================================ */
+/*
+ * ============================================
+ * SMALL — portrait phone (≤ 42em)
+ * ============================================
+ */
 
-@media only screen and (max-width: 42em) {
+@media only screen and (max-width: 42em)
+{
 
   /* ── Body base ───────────────────────────── */
 
-  body {
+  body
+  {
     font-size: 11px !important;
   }
 
   /* ── Header ──────────────────────────────── */
 
-  #header {
+  #header
+  {
     min-height: 140px !important;
   }
 
   /* 1.3em × 11px ≈ 14px */
-  #header h1 a span {
+  #header h1 a span
+  {
     font-size: 1.3em !important;
     letter-spacing: 0.03em !important;
   }
 
   /* Hide "beta" sup — too cramped at phone width */
-  #header h1 sup {
+  #header h1 sup
+  {
     display: none !important;
   }
 
-  #greeting {
+  #greeting
+  {
     width: 70px !important;
   }
 
-  #header .primary.navigation {
+  #header .primary.navigation
+  {
     bottom: 8px !important;
   }
 
-  #header .primary.navigation > ul {
+  #header .primary.navigation>ul
+  {
     border-radius: 6px !important;
     margin: 2px 4px 6px !important;
     padding: 1px 2px !important;
@@ -340,7 +390,8 @@
 
   /* 0.8em — scales nav links relative to inherited nav font size */
   #header .primary.navigation a,
-  #header .primary.navigation a:visited {
+  #header .primary.navigation a:visited
+  {
     font-size: 0.8em !important;
     letter-spacing: 0.01em !important;
     margin: 1px !important;
@@ -350,23 +401,27 @@
   /* ── Main content ────────────────────────── */
 
   #main,
-  #main.dashboard {
+  #main.dashboard
+  {
     padding-left: 2% !important;
     padding-right: 2% !important;
   }
 
   #main h1,
-  #content h1 {
+  #content h1
+  {
     font-size: 1.6em !important;
   }
 
   #main h2,
-  #content h2 {
+  #content h2
+  {
     font-size: 1.3em !important;
   }
 
   #main h3,
-  #content h3 {
+  #content h3
+  {
     font-size: 1.1em !important;
   }
 
@@ -380,13 +435,15 @@
   li.series.blurb .header.module h5.fandoms,
   li.work.blurb .header.module .byline,
   li.bookmark.blurb .header.module .byline,
-  li.series.blurb .header.module .byline {
+  li.series.blurb .header.module .byline
+  {
     margin-left: 66px !important;
   }
 
   li.work.blurb p.datetime,
   li.bookmark.blurb p.datetime,
-  li.series.blurb p.datetime {
+  li.series.blurb p.datetime
+  {
     font-size: 0.7em !important;
     right: 6px !important;
     top: 10px !important;
@@ -406,27 +463,31 @@
   li.series.blurb ul.tags,
   li.series.blurb blockquote,
   li.series.blurb dl.stats,
-  li.series.blurb .actions {
+  li.series.blurb .actions
+  {
     padding-left: 8px !important;
     padding-right: 8px !important;
   }
 
   blockquote.userstuff.summary,
-  .blurb blockquote.userstuff.summary {
+  .blurb blockquote.userstuff.summary
+  {
     margin: 0.4em 8px !important;
     padding: 0.4em 0.6em !important;
   }
 
   li.work.blurb dl.stats,
   li.bookmark.blurb dl.stats,
-  li.series.blurb dl.stats {
+  li.series.blurb dl.stats
+  {
     font-size: 0.78em !important;
   }
 
   .tags a,
   .tags a:visited,
   ul.tags a,
-  dl.meta a.tag {
+  dl.meta a.tag
+  {
     font-size: 0.76em !important;
     margin: 3px 1px !important;
     padding: 3px 8px !important;
@@ -434,18 +495,21 @@
 
   /* ── Work page ───────────────────────────── */
 
-  .userstuff {
+  .userstuff
+  {
     max-width: 100% !important;
     padding: 1em 0.75em !important;
   }
 
-  dl.work.meta.group {
+  dl.work.meta.group
+  {
     border-left: 3px solid var(--accent-1) !important;
     border-right: none !important;
     padding: 0.5em 0.75em !important;
   }
 
-  .javascript .work.navigation .secondary a {
+  .javascript .work.navigation .secondary a
+  {
     display: block !important;
     padding-left: 0.75em !important;
     padding-right: 0.75em !important;
@@ -456,7 +520,8 @@
 
   /* ── Comments ────────────────────────────── */
 
-  li.comment .icon img {
+  li.comment .icon img
+  {
     height: 60px !important;
     max-width: 60px !important;
     width: 60px !important;
@@ -464,7 +529,8 @@
 
   /* ── Forms / filters ─────────────────────── */
 
-  form.filters {
+  form.filters
+  {
     max-width: 100% !important;
     min-width: 0 !important;
     width: 100% !important;
@@ -472,26 +538,30 @@
 
   /* ── Splash / front page ─────────────────── */
 
-  .logged-in .splash > .module {
+  .logged-in .splash>.module
+  {
     margin-left: 0 !important;
     margin-right: 0 !important;
     width: 100% !important;
   }
 
-  .logged-in .splash > div:nth-of-type(odd),
-  .logged-in .splash > div:nth-of-type(even) {
+  .logged-in .splash>div:nth-of-type(odd),
+  .logged-in .splash>div:nth-of-type(even)
+  {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
 
   /* ── Dashboard ───────────────────────────── */
 
-  #dashboard {
+  #dashboard
+  {
     margin: 0.4em 1% !important;
     padding: 3px 4px !important;
   }
 
-  #dashboard a {
+  #dashboard a
+  {
     font-size: 0.7em !important;
     padding: 4px 8px !important;
   }
@@ -509,14 +579,16 @@
   ul.errors,
   .success,
   p.success,
-  div.success {
+  div.success
+  {
     font-size: 0.85em !important;
     padding: 0.5em 0.7em !important;
   }
 
   /* ── Footer ──────────────────────────────── */
 
-  #footer {
+  #footer
+  {
     font-size: 0.8em !important;
     padding: 1em !important;
   }
@@ -524,40 +596,49 @@
 }
 
 
-/* ============================================
-   VERY SMALL — tiny phones (≤ 30em)
-   ============================================ */
+/*
+ * ============================================
+ * VERY SMALL — tiny phones (≤ 30em)
+ * ============================================
+ */
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 30em)
+{
 
   /* ── Body base ───────────────────────────── */
 
-  body {
+  body
+  {
     font-size: 10px !important;
   }
 
   /* ── Header ──────────────────────────────── */
 
-  #header {
+  #header
+  {
     min-height: 120px !important;
   }
 
   /* 1.2em × 10px = 12px */
-  #header h1 a span {
+  #header h1 a span
+  {
     font-size: 1.2em !important;
   }
 
-  #greeting {
+  #greeting
+  {
     width: 60px !important;
   }
 
-  #header .primary.navigation {
+  #header .primary.navigation
+  {
     bottom: 8px !important;
   }
 
   /* 0.8em — scales nav links relative to inherited nav font size */
   #header .primary.navigation a,
-  #header .primary.navigation a:visited {
+  #header .primary.navigation a:visited
+  {
     font-size: 0.8em !important;
     margin: 1px !important;
     padding: 1px 3px !important;
@@ -565,7 +646,8 @@
 
   /* ── Work page ───────────────────────────── */
 
-  dl.work.meta.group {
+  dl.work.meta.group
+  {
     border-left: none !important;
     border-radius: var(--radius-sm) !important;
     border-right: none !important;
@@ -573,7 +655,8 @@
     padding: 0.4em 0.6em !important;
   }
 
-  .userstuff {
+  .userstuff
+  {
     border-radius: var(--radius-sm) !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -595,7 +678,8 @@
   li.series.blurb ul.tags,
   li.series.blurb blockquote,
   li.series.blurb dl.stats,
-  li.series.blurb .actions {
+  li.series.blurb .actions
+  {
     padding-left: 6px !important;
     padding-right: 6px !important;
   }
@@ -603,13 +687,15 @@
   /* Datetime overlaps title at this width — hide it */
   li.work.blurb p.datetime,
   li.bookmark.blurb p.datetime,
-  li.series.blurb p.datetime {
+  li.series.blurb p.datetime
+  {
     display: none !important;
   }
 
   /* ── Comments ────────────────────────────── */
 
-  li.comment .icon img {
+  li.comment .icon img
+  {
     height: 40px !important;
     max-width: 40px !important;
     width: 40px !important;
